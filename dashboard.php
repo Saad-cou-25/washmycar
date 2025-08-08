@@ -1,13 +1,19 @@
 <?php
 session_start();
-if (!isset($_SESSION['user_id'])) {
+if (!isset($_SESSION['user_id']) || $_SESSION['role'] !== 'admin') {
     header("Location: login.php?error=unauthorized");
     exit();
 }
 include 'db_connect.php';
 $sql = "SELECT * FROM services";
 $result = mysqli_query($conn, $sql);
+
+$earnings_sql = "SELECT IFNULL(SUM(payment),0) AS total_earnings FROM services";
+$earnings_res = mysqli_query($conn, $earnings_sql);
+$earnings_row = mysqli_fetch_assoc($earnings_res);
+$total_earnings = $earnings_row['total_earnings'];
 ?>
+
 <!DOCTYPE html>
 <html lang="en">
 <head>
@@ -17,7 +23,7 @@ $result = mysqli_query($conn, $sql);
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
         <div class="navbar">
             <div class="logo">
                 <a href="index.php">
@@ -37,7 +43,8 @@ $result = mysqli_query($conn, $sql);
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
+    <?php include 'header.php'; ?>
     <div class="body-panel">
         <div class="section">
             <h1>Your Bookings</h1>
@@ -80,7 +87,10 @@ $result = mysqli_query($conn, $sql);
                     </tbody>
                 </table>
             </div>
-        </div>  
+        </div>
+        <div class="earnings-box" style="margin-top:1rem; padding:1rem; background:#fff; border-radius:8px; text-align:center;">
+            <strong>Total Earnings:</strong> ৳ <?php echo number_format($total_earnings, 2); ?>
+        </div>
     </div>
     <footer>
         <div class="footer-panel">

@@ -14,7 +14,7 @@ if (isset($_GET['error'])) {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
         <div class="navbar">
             <div class="logo">
                 <a href="index.php">
@@ -35,7 +35,8 @@ if (isset($_GET['error'])) {
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
+    <?php include 'header.php'; ?>
     <div class="body-panel">
         <div class="login-container">
             <h1>Login</h1>

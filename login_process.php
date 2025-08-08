@@ -10,7 +10,14 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = mysqli_fetch_assoc($result);
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            header("Location: dashboard.php");
+            // store role in session
+            $_SESSION['role'] = isset($user['role']) ? $user['role'] : 'user';
+            // redirect admin to dashboard, users to their history
+            if ($_SESSION['role'] === 'admin') {
+                header("Location: dashboard.php");
+            } else {
+                header("Location: user_history.php");
+            }
             exit();
         }
     }

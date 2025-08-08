@@ -19,9 +19,13 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $sql = "INSERT INTO services (first_name, last_name, phone, car_name, car_type, service_type, service_time, service_date, payment) 
                 VALUES ('$first_name', '$last_name', '$phone', '$car_name', '$car_type', '$service_type', '$service_time', '$service_date', '$payment')";
         if (mysqli_query($conn, $sql)) {
-            header("Location: dashboard.php");
+            if ($_SESSION['role'] === 'admin') {
+                header("Location: dashboard.php");
+            } else {
+                header("Location: user_history.php");
+            }
             exit();
-        } else {
+        }else {
             header("Location: new_entry.php?error=database");
             exit();
         }

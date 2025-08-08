@@ -7,7 +7,7 @@
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
         <div class="navbar">
             <div class="logo">
                 <a href="index.php">
@@ -28,7 +28,8 @@
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
+    <?php include 'header.php'; ?>
     <div class="body-panel">
         <div class="index-body-info-container">
             <h1>Contact Us</h1>

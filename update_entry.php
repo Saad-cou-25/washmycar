@@ -9,6 +9,16 @@ $id = (int)$_GET['id'];
 $sql = "SELECT * FROM services WHERE id = $id";
 $result = mysqli_query($conn, $sql);
 $service = mysqli_fetch_assoc($result);
+if (!$service) {
+    header("Location: dashboard.php");
+    exit();
+}
+// authorize: admin or owner
+if ($_SESSION['role'] !== 'admin' && $service['user_id'] != $_SESSION['user_id']) {
+    header("Location: login.php?error=unauthorized");
+    exit();
+}
+
 $error_message = '';
 if (isset($_GET['error'])) {
     $error_message = 'Please fill all fields correctly!';
@@ -45,7 +55,7 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <header>
+    <!-- <header>
         <div class="navbar">
             <div class="logo">
                 <a href="index.php">
@@ -65,7 +75,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                 </div>
             </div>
         </div>
-    </header>
+    </header> -->
+    <?php include 'header.php'; ?>
     <div class="body-panel">
         <div class="form-container">
             <h1>Update Service Booking</h1>
