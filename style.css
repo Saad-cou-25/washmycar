@@ -1,0 +1,488 @@
+* {
+    margin: 0;
+    padding: 0;
+    font-family: 'Gill Sans', 'Gill Sans MT', Calibri, 'Trebuchet MS', sans-serif;
+    box-sizing: border-box;
+}
+
+a {
+    text-decoration: none;
+    font-weight: bold;
+    color: whitesmoke;
+    cursor: pointer;
+}
+
+a:hover {
+    text-decoration: underline;
+    color: #667eea;
+    transition: 0.2s;
+}
+
+.border {
+    border: 2px solid transparent;
+    border-radius: 3px;
+}
+
+.border:hover {
+    border: 2px solid whitesmoke;
+}
+
+button {
+    width: 100%;
+    background: #667eea;
+    color: white;
+    border: none;
+    padding: 1rem;
+    font-size: 1rem;
+    border-radius: 8px;
+    cursor: pointer;
+    transition: 0.3s;
+}
+
+button:hover {
+    background: #5648a2;
+}
+
+/* Body */
+body {
+    background-color: #61656ea2;
+    color: black;
+    margin-top: 8vh;
+}
+
+/* Navbar */
+.navbar {
+    background: #222222;
+    display: flex;
+    justify-content: space-between;
+    border-bottom: 2px solid slategray;
+    position: fixed;
+    width: 100%;
+    top: 0;
+    left: 0;
+    height: 8vh;
+    z-index: 1000;
+}
+
+.logo {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+}
+
+.logo a {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-decoration: none;
+    padding-left: 1rem;
+    padding-right: 1rem;
+}
+
+.logo-image {
+    border-radius: 50%;
+    height: 3rem;
+    width: 3rem;
+    background-image: url("car-wash-logo.jpg");
+    background-size: cover;
+}
+
+.logo-text {
+    font-weight: 700;
+    font-size: 1.5rem;
+    padding: 0.5rem;
+}
+
+.navbar-text {
+    display: inline-flex;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+    color: white;
+    font-weight: 700;
+    margin-right: 1rem;
+}
+
+.navbar button {
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-weight: 700;
+    height: 2.5rem;
+    margin-right: 1rem;
+    margin-left: 1rem;
+    width: auto;
+    padding: 0.5rem 1rem;
+}
+
+.navbar-links {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+}
+
+.navbar-links ul {
+    justify-content: space-around;
+    align-items: center;
+    display: flex;
+}
+
+.navbar-links li {
+    padding: auto;
+    list-style-type: none;
+}
+
+.navbar-links a {
+    padding: 1rem;
+    margin: 1rem;
+    display: block;
+    text-decoration: none;
+}
+
+/* Body Panel */
+.body-panel {
+    height: calc(100vh - 8vh);
+    background-image: linear-gradient(rgba(0, 0, 0, 0.527), rgba(0, 0, 0, 0.527)), url("car-wash-bg.jpg");
+    background-size: cover;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    padding: 1rem;
+}
+
+/* Login Container */
+.login-container {
+    background: rgba(245, 245, 245, 0.63);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 20rem;
+    max-width: 90%;
+}
+
+.login-container h1 {
+    font-weight: 750;
+    margin-bottom: 20px;
+}
+
+.form-group {
+    text-align: left;
+    margin-bottom: 15px;
+}
+
+.login-container label {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.login-container input {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.login-container p {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+/* Signup Container */
+.signup-container {
+    background: rgba(245, 245, 245, 0.63);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 25rem;
+    max-width: 90%;
+}
+
+.signup-container .name-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+}
+
+.signup-container input {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+}
+
+.signup-container p {
+    margin-top: 1rem;
+    font-size: 1rem;
+}
+
+.signup-container h1 {
+    font-weight: 750;
+    margin-bottom: 20px;
+}
+
+.signup-container label {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+/* Form Container (for Booking Forms) */
+.form-container {
+    background: rgba(245, 245, 245, 0.63);
+    backdrop-filter: blur(10px);
+    padding: 1.5rem;
+    border-radius: 1rem;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
+    text-align: center;
+    width: 25rem;
+    max-width: 90%;
+}
+
+.form-container h1 {
+    font-weight: 750;
+    margin-bottom: 20px;
+}
+
+.form-container label {
+    font-weight: 600;
+    font-size: 1rem;
+}
+
+.form-container input,
+.form-container select {
+    width: 100%;
+    padding: 1rem;
+    margin-top: 0.5rem;
+    border: 1px solid #ccc;
+    border-radius: 8px;
+    font-size: 1rem;
+    background: rgba(255, 255, 255, 0.9);
+}
+
+.form-container .name-row {
+    display: flex;
+    gap: 0.5rem;
+    flex-direction: row;
+}
+
+/* Footer */
+.footer-panel {
+    border-top: 2px solid slategray;
+    background: #222222;
+    color: whitesmoke;
+    display: flex;
+    justify-content: space-around;
+    align-items: center;
+    padding: 1rem;
+    width: 100%;
+}
+
+/* Index Page */
+.index-body-info-container {
+    width: 30rem;
+    font-size: 1rem;
+    padding: 2rem;
+    border-radius: 15px;
+    background-color: rgba(245, 245, 245, 0.516);
+    backdrop-filter: blur(10px);
+    margin: 4rem;
+    max-width: 90%;
+}
+
+.index-body-info-container p {
+    padding-top: 1rem;
+    padding-bottom: 1rem;
+    font-size: 1.5rem;
+}
+
+.counter-box {
+    padding: 1rem;
+    margin: 10px 0;
+    border-radius: 5px;
+    background: #667eea;
+    color: white;
+    font-size: 1.5rem;
+    font-weight: bolder;
+    text-align: center;
+}
+
+.counter-box:hover {
+    background: #5648a2;
+}
+
+/* Dashboard */
+.section {
+    width: 70vw;
+    margin: 2rem auto;
+    padding: 2rem;
+    background: #a8acb8;
+    border-radius: 12px;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    max-width: 90%;
+}
+
+.table-container {
+    width: 100%;
+    margin-top: 1rem;
+    max-height: 60vh;
+    overflow-y: auto;
+}
+
+.dashboard-table {
+    width: 100%;
+    border-collapse: collapse;
+    background: #d0d3db;
+    color: #222;
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    border-radius: 12px;
+    overflow: hidden;
+}
+
+.dashboard-table thead {
+    background: #8f95a2;
+    color: #222;
+    font-size: 1.5rem;
+}
+
+.dashboard-table th,
+.dashboard-table td {
+    padding: 0.7rem;
+    border-top: 1px solid #7f8594;
+    border: 1px solid #7f8594;
+    text-align: center;
+}
+
+.dashboard-table tbody tr:nth-child(even) {
+    background: #b5baca;
+}
+
+.dashboard-table tbody tr:hover {
+    background: #acbadf85;
+    transition: 0.2s;
+}
+
+/* Error Message */
+.error-message {
+    background-color: #f8d7da;
+    color: #721c24;
+    padding: 10px;
+    margin-bottom: 15px;
+    border: 1px solid #f5c6cb;
+    border-radius: 4px;
+    text-align: center;
+    animation: fadeIn 0.5s;
+    color: red;
+    margin-bottom: 15px;
+    font-weight: bold;
+}
+
+@keyframes fadeIn {
+    from { opacity: 0; }
+    to { opacity: 1; }
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+    .navbar {
+        flex-direction: column;
+        height: auto;
+        padding: 0.5rem;
+    }
+
+    .navbar-links ul {
+        flex-direction: column;
+        align-items: center;
+    }
+
+    .navbar-links li {
+        margin: 0.5rem 0;
+    }
+
+    .navbar-text {
+        flex-direction: column;
+        margin: 0.5rem 0;
+    }
+
+    .navbar button {
+        margin: 0.5rem 0;
+        width: 100%;
+    }
+
+    .login-container,
+    .signup-container,
+    .form-container,
+    .index-body-info-container {
+        width: 90%;
+        padding: 1rem;
+    }
+
+    .signup-container .name-row,
+    .form-container .name-row {
+        flex-direction: column;
+        gap: 0;
+    }
+
+    .section {
+        width: 95%;
+        padding: 1rem;
+    }
+
+    .dashboard-table th,
+    .dashboard-table td {
+        padding: 0.5rem;
+        font-size: 0.9rem;
+    }
+
+    .dashboard-table thead {
+        font-size: 1.2rem;
+    }
+
+    .table-container {
+        max-height: none;
+        overflow-x: auto;
+    }
+}
+
+@media (max-width: 480px) {
+    .logo-text {
+        font-size: 1.2rem;
+    }
+
+    .logo-image {
+        height: 2.5rem;
+        width: 2.5rem;
+    }
+
+    .navbar-links a {
+        padding: 0.5rem;
+        margin: 0.5rem;
+    }
+
+    .dashboard-table {
+        font-size: 0.8rem;
+    }
+
+    .dashboard-table th,
+    .dashboard-table td {
+        padding: 0.4rem;
+    }
+
+    button {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+
+    .form-container input,
+    .form-container select {
+        font-size: 0.9rem;
+        padding: 0.8rem;
+    }
+}
