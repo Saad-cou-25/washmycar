@@ -15,21 +15,6 @@ $result = mysqli_query($conn, $sql);
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Dashboard</title>
     <link rel="stylesheet" href="style.css">
-    <style>
-        @media print {
-            .navbar, .footer-panel, button {
-                display: none;
-            }
-            .section {
-                margin: 0;
-                padding: 0;
-                box-shadow: none;
-            }
-            .dashboard-table {
-                font-size: 12pt;
-            }
-        }
-    </style>
 </head>
 <body>
     <header>
@@ -55,44 +40,47 @@ $result = mysqli_query($conn, $sql);
     </header>
     <div class="body-panel">
         <div class="section">
-            <h1>Service Bookings</h1>
+            <h1>Your Bookings</h1>
             <div class="table-container">
                 <table class="dashboard-table">
                     <thead>
                         <tr>
                             <th>ID</th>
-                            <th>Name</th>
+                            <th>First Name</th>
+                            <th>Last Name</th>
                             <th>Phone</th>
-                            <th>Car</th>
-                            <th>Type</th>
-                            <th>Time</th>
+                            <th>Car Name</th>
+                            <th>Car Type</th>
+                            <th>Service Type</th>
                             <th>Date</th>
+                            <th>Time</th>
                             <th>Payment</th>
                             <th>Actions</th>
                         </tr>
                     </thead>
                     <tbody>
                         <?php while ($row = mysqli_fetch_assoc($result)): ?>
-                        <tr>
-                            <td><?php echo $row['id']; ?></td>
-                            <td><?php echo htmlspecialchars($row['first_name'] . ' ' . $row['last_name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['phone']); ?></td>
-                            <td><?php echo htmlspecialchars($row['car_name']); ?></td>
-                            <td><?php echo htmlspecialchars($row['car_type']); ?></td>
-                            <td><?php echo $row['service_time']; ?></td>
-                            <td><?php echo $row['service_date']; ?></td>
-                            <td><?php echo number_format($row['payment'], 2); ?></td>
-                            <td>
-                                <a href="update_entry.php?id=<?php echo $row['id']; ?>" style="color: #667eea;">Update</a>
-                                <a href="delete_entry.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?')" style="color: #721c24;">Delete</a>
-                            </td>
-                        </tr>
+                            <tr>
+                                <td><?php echo $row['id']; ?></td>
+                                <td><?php echo htmlspecialchars($row['first_name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['last_name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['phone']); ?></td>
+                                <td><?php echo htmlspecialchars($row['car_name']); ?></td>
+                                <td><?php echo htmlspecialchars($row['car_type']); ?></td>
+                                <td><?php echo htmlspecialchars($row['service_type']); ?></td>
+                                <td><?php echo $row['service_date']; ?></td>
+                                <td><?php echo $row['service_time']; ?></td>
+                                <td><?php echo $row['payment']; ?></td>
+                                <td>
+                                    <a href="update_entry.php?id=<?php echo $row['id']; ?>">Edit</a>
+                                    <a href="delete_entry.php?id=<?php echo $row['id']; ?>" onclick="return confirm('Are you sure?')">Delete</a>
+                                </td>
+                            </tr>
                         <?php endwhile; ?>
                     </tbody>
                 </table>
             </div>
-            <button onclick="window.print();">Print Report</button>
-        </div>
+        </div>  
     </div>
     <footer>
         <div class="footer-panel">

@@ -56,21 +56,34 @@ if (isset($_GET['error'])) {
                         <input type="text" id="last_name" name="last_name" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" required>
-                </div>
                 <div class="name-row">
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" required>
+                    </div>
                     <div class="form-group">
                         <label for="car_name">Car Name</label>
                         <input type="text" id="car_name" name="car_name" required>
                     </div>
+                </div>
+                <div class="name-row">
                     <div class="form-group">
                         <label for="car_type">Car Type</label>
                         <select id="car_type" name="car_type" required>
                             <option value="Sedan">Sedan</option>
                             <option value="SUV">SUV</option>
                             <option value="Truck">Truck</option>
+                            <option value="Bike">Bike</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="service_type">Service Type</label>
+                        <select id="service_type" name="service_type" required>
+                            <option value="Wash">Wash</option>
+                            <option value="Scratch Remove">Scratch Remove</option>
+                            <option value="Painting">Painting</option>
+                            <option value="Interior Cleaning">Interior Cleaning</option>
+                            <option value="Engine Cleaning">Engine Cleaning</option>
                         </select>
                     </div>
                 </div>

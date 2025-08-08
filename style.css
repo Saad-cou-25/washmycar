@@ -486,3 +486,12 @@ body {
         padding: 0.8rem;
     }
 }
+
+
+.service-list li{
+    list-style-type:disc;
+    padding: .1rem;
+    margin: .3rem;
+    font-style: italic;
+    font-size: 1.2rem;
+}

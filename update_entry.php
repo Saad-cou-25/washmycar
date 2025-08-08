@@ -9,35 +9,30 @@ $id = (int)$_GET['id'];
 $sql = "SELECT * FROM services WHERE id = $id";
 $result = mysqli_query($conn, $sql);
 $service = mysqli_fetch_assoc($result);
-
-// Initialize error message
 $error_message = '';
 if (isset($_GET['error'])) {
     $error_message = 'Please fill all fields correctly!';
 }
-
 if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $first_name = mysqli_real_escape_string($conn, $_POST['first_name']);
     $last_name = mysqli_real_escape_string($conn, $_POST['last_name']);
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $car_name = mysqli_real_escape_string($conn, $_POST['car_name']);
     $car_type = mysqli_real_escape_string($conn, $_POST['car_type']);
+    $service_type = mysqli_real_escape_string($conn, $_POST['service_type']);
     $service_date = $_POST['service_date'];
     $service_time = $_POST['service_time'];
     $payment = $_POST['payment'];
-
-    // Server-side validation to check for empty fields
-    if (empty($first_name) || empty($last_name) || empty($phone) || empty($car_name) || empty($car_type) || empty($service_date) || empty($service_time) || empty($payment)) {
+    if (empty($first_name) || empty($last_name) || empty($phone) || empty($car_name) || empty($car_type) || empty($service_type) || empty($service_date) || empty($service_time) || empty($payment)) {
         header("Location: update_entry.php?id=$id&error=1");
         exit();
     }
-
-    $sql_update = "UPDATE services SET first_name='$first_name', last_name='$last_name', phone='$phone', car_name='$car_name', car_type='$car_type', service_time='$service_time', service_date='$service_date', payment='$payment' WHERE id=$id";
+    $sql_update = "UPDATE services SET first_name='$first_name', last_name='$last_name', phone='$phone', car_name='$car_name', car_type='$car_type', service_type='$service_type', service_time='$service_time', service_date='$service_date', payment='$payment' WHERE id=$id";
     if (mysqli_query($conn, $sql_update)) {
         header("Location: dashboard.php");
         exit();
     } else {
-        echo "Error: " . mysqli_error($conn);
+        $error_message = "Error updating service: " . mysqli_error($conn);
     }
 }
 ?>
@@ -74,11 +69,10 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     <div class="body-panel">
         <div class="form-container">
             <h1>Update Service Booking</h1>
+            <?php if ($error_message): ?>
+                <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
+            <?php endif; ?>
             <form action="update_entry.php?id=<?php echo $id; ?>" method="post">
-                <!-- Display error message if it exists -->
-                <?php if ($error_message): ?>
-                    <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
-                <?php endif; ?>
                 <div class="name-row">
                     <div class="form-group">
                         <label for="first_name">First Name</label>
@@ -89,21 +83,34 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
                         <input type="text" id="last_name" name="last_name" value="<?php echo htmlspecialchars($service['last_name']); ?>" required>
                     </div>
                 </div>
-                <div class="form-group">
-                    <label for="phone">Phone</label>
-                    <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($service['phone']); ?>" required>
-                </div>
                 <div class="name-row">
+                    <div class="form-group">
+                        <label for="phone">Phone</label>
+                        <input type="tel" id="phone" name="phone" value="<?php echo htmlspecialchars($service['phone']); ?>" required>
+                    </div>
                     <div class="form-group">
                         <label for="car_name">Car Name</label>
                         <input type="text" id="car_name" name="car_name" value="<?php echo htmlspecialchars($service['car_name']); ?>" required>
                     </div>
+                </div>
+                <div class="name-row">
                     <div class="form-group">
                         <label for="car_type">Car Type</label>
                         <select id="car_type" name="car_type" required>
                             <option value="Sedan" <?php if ($service['car_type'] == 'Sedan') echo 'selected'; ?>>Sedan</option>
                             <option value="SUV" <?php if ($service['car_type'] == 'SUV') echo 'selected'; ?>>SUV</option>
                             <option value="Truck" <?php if ($service['car_type'] == 'Truck') echo 'selected'; ?>>Truck</option>
+                            <option value="Bike" <?php if ($service['car_type'] == 'Bike') echo 'selected'; ?>>Bike</option>
+                        </select>
+                    </div>
+                    <div class="form-group">
+                        <label for="service_type">Service Type</label>
+                        <select id="service_type" name="service_type" required>
+                            <option value="Wash" <?php if ($service['service_type'] == 'Wash') echo 'selected'; ?>>Wash</option>
+                            <option value="Scratch Remove" <?php if ($service['service_type'] == 'Scratch Remove') echo 'selected'; ?>>Scratch Remove</option>
+                            <option value="Painting" <?php if ($service['service_type'] == 'Painting') echo 'selected'; ?>>Painting</option>
+                            <option value="Painting" <?php if ($service['service_type'] == 'Interior Cleaning') echo 'selected'; ?>>Interior Cleaning</option>
+                            <option value="Painting" <?php if ($service['service_type'] == 'Engine Cleaning') echo 'selected'; ?>>Engine Cleaning</option>
                         </select>
                     </div>
                 </div>

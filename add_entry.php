@@ -11,16 +11,23 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
     $phone = mysqli_real_escape_string($conn, $_POST['phone']);
     $car_name = mysqli_real_escape_string($conn, $_POST['car_name']);
     $car_type = mysqli_real_escape_string($conn, $_POST['car_type']);
+    $service_type = mysqli_real_escape_string($conn, $_POST['service_type']);
     $service_date = $_POST['service_date'];
     $service_time = $_POST['service_time'];
     $payment = $_POST['payment'];
-    $sql = "INSERT INTO services (first_name, last_name, phone, car_name, car_type, service_time, service_date, payment) 
-            VALUES ('$first_name', '$last_name', '$phone', '$car_name', '$car_type', '$service_time', '$service_date', '$payment')";
-    if (mysqli_query($conn, $sql)) {
-        header("Location: dashboard.php");
-        exit();
+    if ($first_name && $last_name && $phone && $car_name && $car_type && $service_type && $service_date && $service_time && $payment) {
+        $sql = "INSERT INTO services (first_name, last_name, phone, car_name, car_type, service_type, service_time, service_date, payment) 
+                VALUES ('$first_name', '$last_name', '$phone', '$car_name', '$car_type', '$service_type', '$service_time', '$service_date', '$payment')";
+        if (mysqli_query($conn, $sql)) {
+            header("Location: dashboard.php");
+            exit();
+        } else {
+            header("Location: new_entry.php?error=database");
+            exit();
+        }
     } else {
-        echo "Error: " . mysqli_error($conn);
+        header("Location: new_entry.php?error=invalid");
+        exit();
     }
 }
 mysqli_close($conn);
