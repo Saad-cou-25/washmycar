@@ -58,7 +58,10 @@ if (isset($_GET['error'])) {
         </div>
     </div>
     <footer>
-        <p>© 2025 Wash My Car. All rights reserved.</p>
+        <div class="footer-panel">
+            <p>© 2025 Wash My Car. All rights reserved.</p>
+            <a href="contact.php">Contact Us</a>
+        </div>
     </footer>
 </body>
 </html>

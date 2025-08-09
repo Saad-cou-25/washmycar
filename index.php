@@ -46,13 +46,25 @@ $count_total = mysqli_fetch_assoc($result_total)['count'];
     </header> -->
         <?php include 'header.php'; ?>
     <div class="body-panel">
-        <div class="index-body-info-container">
-            <h1>Welcome to Wash My Car</h1>
-            <p>Book your car wash service easily and quickly with our user-friendly platform.</p>
-            <div class="counter-box">Today: <span><?php echo $count_today; ?></span></div>
-            <div class="counter-box">This Month: <span><?php echo $count_month; ?></span></div>
-            <div class="counter-box">All Time: <span><?php echo $count_total; ?></span></div>
+        <div style="display: flex; flex-direction: row; gap: 20px; padding: 20px;">
+            <div class="index-body-info-container">
+                <h1>Welcome to Wash My Car</h1>
+                <p>At Wash My Car, we offer a wide range of car washing services that cater to all types of vehicles. We are committed to providing you with the best possible experience and satisfaction.</p>
+                <br>
+                <button onclick="window.location.href='services.php';">Learn more about our services</button>
+            </div>
+    
+            <div class="index-body-info-container">
+                <h1>Let's see our successful services:</h1>
+
+                <div class="counter-box">Today: <span><?php echo $count_today; ?></span></div>
+                <div class="counter-box">This Month: <span><?php echo $count_month; ?></span></div>
+                <div class="counter-box">All Time: <span><?php echo $count_total; ?></span></div>
+            </div>
+            
         </div>
+        
+
     </div>
     <footer>
         <div class="footer-panel">

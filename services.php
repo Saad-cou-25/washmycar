@@ -47,7 +47,7 @@
     <footer>
         <div class="footer-panel">
             <p>© 2025 Wash My Car. All rights reserved.</p>
-            <a href="contact.html">Contact Us</a>
+            <a href="contact.php">Contact Us</a>
         </div>
     </footer>
 </body>

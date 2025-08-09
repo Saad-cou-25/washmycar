@@ -68,11 +68,12 @@ $user_earnings = $earn_row['earnings'];
                 <?php endif; ?>
             </div>
 
-            <div class="earnings-box" style="margin-top:1rem; padding:1rem; background:#fff; border-radius:8px; text-align:center;">
-                <strong>Your Total Payments:</strong> ৳ <?php echo number_format($user_earnings, 2); ?>
+            <div class="earnings-box" style="margin-top:.5rem; padding:.5rem;  background:#677182; border-radius:8px; text-align:center;">
+                <div style=" margin-bottom:.5rem;">   
+                    <strong >Your Total Payments:</strong> ৳ <?php echo number_format($user_earnings, 2); ?>
+                </div>
+                <button onclick="window.location.href='new_entry.php';"  ">Book a new service</button>
             </div>
-
-            <p style="margin-top:1rem;"><a href="new_entry.php">Book a new service</a></p>
         </div>
     </div>
     <?php mysqli_close($conn); ?>

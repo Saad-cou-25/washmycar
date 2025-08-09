@@ -21,13 +21,15 @@ if (isset($_GET['error'])) {
                 <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
             <?php endif; ?>
             <form action="signup_process.php" method="post">
-                <div class="form-group">
-                    <label for="first_name">First Name</label>
-                    <input type="text" id="first_name" name="first_name" required>
-                </div>
-                <div class="form-group">
-                    <label for="last_name">Last Name</label>
-                    <input type="text" id="last_name" name="last_name" required>
+                <div class="name-row">
+                    <div class="form-group">
+                        <label for="first_name">First Name</label>
+                        <input type="text" id="first_name" name="first_name" required>
+                    </div>
+                    <div class="form-group">
+                        <label for="last_name">Last Name</label>
+                        <input type="text" id="last_name" name="last_name" required>
+                    </div>
                 </div>
                 <div class="form-group">
                     <label for="email">Email</label>
@@ -47,7 +49,10 @@ if (isset($_GET['error'])) {
         </div>
     </div>
     <footer>
-        <p>© 2025 Wash My Car. All rights reserved.</p>
+        <div class="footer-panel">
+            <p>© 2025 Wash My Car. All rights reserved.</p>
+            <a href="contact.php">Contact Us</a>
+        </div>
     </footer>
 </body>
 </html>

@@ -170,7 +170,7 @@ body {
 
 .form-group {
     text-align: left;
-    margin-bottom: 15px;
+    margin-bottom:.5rem;
 }
 
 .login-container label {
@@ -496,7 +496,3 @@ body {
     font-style: italic;
     font-size: 1.2rem;
 }
-
-
-
-
