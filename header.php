@@ -20,6 +20,7 @@ $display_name = $logged_in ? (isset($_SESSION['email']) ? $_SESSION['email'] : '
                     <li><a href="services.php">Services</a></li>
                     <?php if ($logged_in && $role === 'admin'): ?>
                         <li><a href="dashboard.php">Dashboard</a></li>
+                        <a href="users_list.php">View Registered Users</a>
                         <li><a href="admin_messages.php">Messages</a></li>
                     <?php elseif ($logged_in && $role === 'user'): ?>
                         <li><a href="user_history.php">My Bookings</a></li>
