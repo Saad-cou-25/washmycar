@@ -256,15 +256,17 @@ body {
     font-size: 1rem;
 }
 
+/* SMALLER INPUTS: adjusted padding & font-size */
 .form-container input,
 .form-container select {
     width: 100%;
-    padding: 1rem;
-    margin-top: 0.5rem;
+    padding: 0.65rem;        /* smaller */
+    margin-top: 0.4rem;
     border: 1px solid #ccc;
-    border-radius: 8px;
-    font-size: 1rem;
+    border-radius: 6px;
+    font-size: 0.95rem;     /* slightly smaller font */
     background: rgba(255, 255, 255, 0.9);
+    box-sizing: border-box;
 }
 
 .form-container .name-row {
@@ -487,7 +489,6 @@ body {
     }
 }
 
-
 .service-list li{
     list-style-type:disc;
     padding: .1rem;
@@ -495,3 +496,7 @@ body {
     font-style: italic;
     font-size: 1.2rem;
 }
+
+
+
+

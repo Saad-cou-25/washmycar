@@ -9,38 +9,16 @@ if (isset($_GET['error'])) {
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Wash My Car</title>
+    <title>Wash My Car - Sign Up</title>
     <link rel="stylesheet" href="style.css">
 </head>
 <body>
-    <!-- <header>
-        <div class="navbar">
-            <div class="logo">
-                <a href="index.php">
-                    <div class="logo-image"></div>
-                    <div class="logo-text">Wash My Car</div>
-                </a>
-            </div>
-            <div class="navbar-text">
-                <div class="navbar-links">
-                    <ul>
-                        <li><a href="index.php">Home</a></li>
-                        <li><a href="services.html">Services</a></li>
-                        <li><a href="contact.html">Contact Us</a></li>
-                    </ul>
-                </div>
-                <div class="navbar-button">
-                    <button onclick="window.location.href='login.php';">Login</button>
-                </div>
-            </div>
-        </div>
-    </header> -->
     <?php include 'header.php'; ?>
     <div class="body-panel">
         <div class="signup-container">
             <h1>Sign Up</h1>
             <?php if ($error_message): ?>
-                <div class="error-message"><?php echo $error_message; ?></div>
+                <div class="error-message"><?php echo htmlspecialchars($error_message); ?></div>
             <?php endif; ?>
             <form action="signup_process.php" method="post">
                 <div class="form-group">
@@ -54,6 +32,10 @@ if (isset($_GET['error'])) {
                 <div class="form-group">
                     <label for="email">Email</label>
                     <input type="email" id="email" name="email" required>
+                </div>
+                <div class="form-group">
+                    <label for="phone">Phone (optional)</label>
+                    <input type="tel" id="phone" name="phone" placeholder="+8801XXXXXXXXX">
                 </div>
                 <div class="form-group">
                     <label for="password">Password</label>

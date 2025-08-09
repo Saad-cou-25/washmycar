@@ -10,9 +10,8 @@ if ($_SERVER['REQUEST_METHOD'] == 'POST') {
         $user = mysqli_fetch_assoc($result);
         if (password_verify($password, $user['password'])) {
             $_SESSION['user_id'] = $user['id'];
-            // store role in session
+            $_SESSION['email'] = $user['email']; // important
             $_SESSION['role'] = isset($user['role']) ? $user['role'] : 'user';
-            // redirect admin to dashboard, users to their history
             if ($_SESSION['role'] === 'admin') {
                 header("Location: dashboard.php");
             } else {
